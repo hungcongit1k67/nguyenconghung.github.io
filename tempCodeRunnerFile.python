@@ -1,0 +1,24 @@
+import math
+
+# Tính tổng số cách sắp xếp 12 viên bi với 4 màu, mỗi màu có 3 viên
+def total_arrangements():
+    # Tổng số cách không phân biệt vị trí các viên bi cùng màu
+    return math.factorial(12) // (math.factorial(3) ** 4)
+
+# Tính số cách thỏa mãn điều kiện các viên bi không đứng cạnh nhau
+def count_valid_arrangements():
+    # Tổng số cách sắp xếp
+    total = total_arrangements()
+
+    # Số cách thỏa mãn điều kiện là 2/55 của tổng số
+    valid = (2 / 55) * total
+    return valid
+
+# Tính toán
+total = total_arrangements()
+valid = count_valid_arrangements()
+
+# In kết quả
+print(f"Tổng số cách sắp xếp: {total}")
+print(f"Số cách thỏa mãn điều kiện: {valid}")
+print(f"Tỷ lệ thỏa mãn: {valid / total:.5f}")
